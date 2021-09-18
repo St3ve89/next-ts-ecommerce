@@ -1,4 +1,5 @@
 import { InferGetStaticPropsType } from 'next';
+import getAllProducts from '../framework/shopify/product/get-all-products';
 
 export default function Home({
   products,
@@ -7,7 +8,7 @@ export default function Home({
 }
 
 export async function getStaticProps() {
-  const products = [1, 2, 3];
+  const products = await getAllProducts();
   return {
     props: {
       products,
